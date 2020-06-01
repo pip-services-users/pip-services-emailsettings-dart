@@ -49,7 +49,7 @@ class EmailSettingsController
   bool _verifyOnUpdate = true;
   num _expireTimeout = 24 * 60; // in minutes
   String _magicCode = '';
-  ConfigParams _config = ConfigParams();
+  //ConfigParams _config = ConfigParams();
 
   DependencyResolver dependencyResolver =
       DependencyResolver(EmailSettingsController._defaultConfig);
@@ -80,7 +80,7 @@ class EmailSettingsController
     _magicCode =
         config.getAsStringWithDefault('options.magic_code', _magicCode);
 
-    _config = config;
+    //_config = config;
   }
 
   /// Set references to component.
