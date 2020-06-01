@@ -15,7 +15,11 @@ dependencies:
   pip_services3_grpc: ">=1.0.0 <2.0.0"
   pip_services3_container: ">=1.0.0 <2.0.0"
   pip_clients_activities: ">=1.0.0 <2.0.0"
-  pip_services_activities: ">=1.0.0 <2.0.0"
+  pip_services_activities: ">=1.0.0 <2.0.0"  
+  pip_clients_email: ">=1.0.0 <2.0.0"
+  pip_services_email: ">=1.0.1 <2.0.0"
+  pip_clients_msgtemplates: ">=1.0.0 <2.0.0"
+  pip_services_msgtemplates: ">=1.0.0 <2.0.0"
   mongo_dart_query: "^0.4.1"
   http: "^0.12.0"
   angel_framework: ^2.1.1

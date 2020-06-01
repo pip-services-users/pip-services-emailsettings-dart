@@ -13,7 +13,8 @@ class EmailSettingsMongoDbPersistence
   }
 
   @override
-  Future<EmailSettingsV1> getOneByEmail(String correlationId, String email) async {
+  Future<EmailSettingsV1> getOneByEmail(
+      String correlationId, String email) async {
     var filter = {'email': email};
     var query = mngquery.SelectorBuilder();
     var selector = <String, dynamic>{};

@@ -29,7 +29,7 @@ class EmailSettingsV1 implements IStringIdentifiable {
       DateTime ver_expire_time,
       dynamic custom_hdr,
       dynamic custom_dat})
-      : id = id,        
+      : id = id,
         name = name,
         email = email,
         language = language,
@@ -41,7 +41,7 @@ class EmailSettingsV1 implements IStringIdentifiable {
         custom_dat = custom_dat;
 
   void fromJson(Map<String, dynamic> json) {
-    id = json['id'];    
+    id = json['id'];
     name = json['name'];
     email = json['email'];
     language = json['language'];
@@ -58,15 +58,16 @@ class EmailSettingsV1 implements IStringIdentifiable {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'id': id,      
+      'id': id,
       'name': name,
       'email': email,
       'language': language,
       'subscriptions': subscriptions,
       'verified': verified,
       'ver_code': ver_code,
-      'ver_expire_time':
-          ver_expire_time != null ? ver_expire_time.toIso8601String() : ver_expire_time,
+      'ver_expire_time': ver_expire_time != null
+          ? ver_expire_time.toIso8601String()
+          : ver_expire_time,
       'custom_hdr': custom_hdr,
       'custom_dat': custom_dat
     };

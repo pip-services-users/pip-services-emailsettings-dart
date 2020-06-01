@@ -11,7 +11,8 @@ class EmailSettingsMemoryPersistence
   }
 
   @override
-  Future<EmailSettingsV1> getOneByEmail(String correlationId, String email) async {
+  Future<EmailSettingsV1> getOneByEmail(
+      String correlationId, String email) async {
     var item =
         items.isNotEmpty ? items.where((item) => item.email == email) : null;
 

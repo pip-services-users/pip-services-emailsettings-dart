@@ -10,7 +10,8 @@ void main() {
     EmailSettingsPersistenceFixture fixture;
 
     setUp(() async {
-      persistence = EmailSettingsFilePersistence('data/email_settings.test.json');
+      persistence =
+          EmailSettingsFilePersistence('data/email_settings.test.json');
       persistence.configure(ConfigParams());
 
       fixture = EmailSettingsPersistenceFixture(persistence);

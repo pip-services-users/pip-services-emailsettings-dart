@@ -25,8 +25,8 @@ class EmailSettingsCommandSet extends CommandSet {
   ICommand _makeGetSettingsByIdsCommand() {
     return Command(
         'get_settings_by_ids',
-        ObjectSchema(true)
-            .withRequiredProperty('recipient_ids', ArraySchema(TypeCode.String)),
+        ObjectSchema(true).withRequiredProperty(
+            'recipient_ids', ArraySchema(TypeCode.String)),
         (String correlationId, Parameters args) {
       var recipientIds = args.get('recipient_ids');
       return _controller.getSettingsByIds(correlationId, recipientIds);
@@ -34,8 +34,10 @@ class EmailSettingsCommandSet extends CommandSet {
   }
 
   ICommand _makeGetSettingsByIdCommand() {
-    return Command('get_settings_by_id',
-        ObjectSchema(true).withRequiredProperty('recipient_id', TypeCode.String),
+    return Command(
+        'get_settings_by_id',
+        ObjectSchema(true)
+            .withRequiredProperty('recipient_id', TypeCode.String),
         (String correlationId, Parameters args) {
       var recipientId = args.getAsNullableString('recipient_id');
       return _controller.getSettingsById(correlationId, recipientId);
@@ -52,8 +54,10 @@ class EmailSettingsCommandSet extends CommandSet {
   }
 
   ICommand _makeSetSettingsCommand() {
-    return Command('set_settings',
-        ObjectSchema(true).withRequiredProperty('settings', EmailSettingsV1Schema()),
+    return Command(
+        'set_settings',
+        ObjectSchema(true)
+            .withRequiredProperty('settings', EmailSettingsV1Schema()),
         (String correlationId, Parameters args) {
       var settings = EmailSettingsV1();
       settings.fromJson(args.get('settings'));
@@ -62,8 +66,10 @@ class EmailSettingsCommandSet extends CommandSet {
   }
 
   ICommand _makeSetVerifiedSettingsCommand() {
-    return Command('set_verified_settings',
-        ObjectSchema(true).withRequiredProperty('settings', EmailSettingsV1Schema()),
+    return Command(
+        'set_verified_settings',
+        ObjectSchema(true)
+            .withRequiredProperty('settings', EmailSettingsV1Schema()),
         (String correlationId, Parameters args) {
       var settings = EmailSettingsV1();
       settings.fromJson(args.get('settings'));
@@ -72,34 +78,42 @@ class EmailSettingsCommandSet extends CommandSet {
   }
 
   ICommand _makeSetRecipientCommand() {
-    return Command('set_recipient',
-        ObjectSchema(true).withRequiredProperty('recipient_id', TypeCode.String)
-				.withOptionalProperty('name', TypeCode.String)
-				.withOptionalProperty('email', TypeCode.String)
-				.withOptionalProperty('language', TypeCode.String),
+    return Command(
+        'set_recipient',
+        ObjectSchema(true)
+            .withRequiredProperty('recipient_id', TypeCode.String)
+            .withOptionalProperty('name', TypeCode.String)
+            .withOptionalProperty('email', TypeCode.String)
+            .withOptionalProperty('language', TypeCode.String),
         (String correlationId, Parameters args) {
       var recipientId = args.getAsString('recipient_id');
       var name = args.getAsString('name');
       var email = args.getAsString('email');
       var language = args.getAsString('language');
-      return _controller.setRecipient(correlationId, recipientId, name, email, language);
+      return _controller.setRecipient(
+          correlationId, recipientId, name, email, language);
     });
   }
 
   ICommand _makeSetSubscriptionsCommand() {
-    return Command('set_subscriptions',
-        ObjectSchema(true).withRequiredProperty('recipient_id', TypeCode.String)
-				.withRequiredProperty('subscriptions', TypeCode.Map),
+    return Command(
+        'set_subscriptions',
+        ObjectSchema(true)
+            .withRequiredProperty('recipient_id', TypeCode.String)
+            .withRequiredProperty('subscriptions', TypeCode.Map),
         (String correlationId, Parameters args) {
       var recipientId = args.getAsString('recipient_id');
       var subscriptions = args.get('subscriptions');
-      return _controller.setSubscriptions(correlationId, recipientId, subscriptions);
+      return _controller.setSubscriptions(
+          correlationId, recipientId, subscriptions);
     });
-  }  
+  }
 
   ICommand _makeDeleteSettingsByIdCommand() {
-    return Command('delete_settings_by_id',
-        ObjectSchema(true).withRequiredProperty('recipient_id', TypeCode.String),
+    return Command(
+        'delete_settings_by_id',
+        ObjectSchema(true)
+            .withRequiredProperty('recipient_id', TypeCode.String),
         (String correlationId, Parameters args) {
       var recipientId = args.getAsNullableString('recipient_id');
       return _controller.deleteSettingsById(correlationId, recipientId);
@@ -107,8 +121,7 @@ class EmailSettingsCommandSet extends CommandSet {
   }
 
   ICommand _makeResendVerificationCommand() {
-    return Command('resend_verification',
-        ObjectSchema(),
+    return Command('resend_verification', ObjectSchema(),
         (String correlationId, Parameters args) {
       var recipientId = args.getAsString('recipient_id');
       return _controller.resendVerification(correlationId, recipientId);
@@ -116,8 +129,10 @@ class EmailSettingsCommandSet extends CommandSet {
   }
 
   ICommand _makeVerifyEmailCommand() {
-    return Command('verify_email',
-        ObjectSchema(true).withRequiredProperty('recipient_id', TypeCode.String),
+    return Command(
+        'verify_email',
+        ObjectSchema(true)
+            .withRequiredProperty('recipient_id', TypeCode.String),
         (String correlationId, Parameters args) {
       var recipientId = args.getAsString('recipient_id');
       var code = args.getAsString('code');

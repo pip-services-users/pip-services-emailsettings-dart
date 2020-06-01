@@ -8,7 +8,7 @@ final SETTINGS1 = EmailSettingsV1(
     language: 'en',
     verified: false,
     ver_code: null,
-    subscriptions: { 'notifications': true, 'ads': false });
+    subscriptions: {'notifications': true, 'ads': false});
 final SETTINGS2 = EmailSettingsV1(
     id: '2',
     name: 'User 2',
@@ -16,7 +16,7 @@ final SETTINGS2 = EmailSettingsV1(
     language: 'en',
     verified: false,
     ver_code: null,
-    subscriptions: { 'notifications': true, 'ads': true });
+    subscriptions: {'notifications': true, 'ads': true});
 final SETTINGS3 = EmailSettingsV1(
     id: '3',
     name: 'User 3',
@@ -24,7 +24,7 @@ final SETTINGS3 = EmailSettingsV1(
     language: 'en',
     verified: false,
     ver_code: null,
-    subscriptions: { 'notifications': false, 'ads': false });
+    subscriptions: {'notifications': false, 'ads': false});
 
 class EmailSettingsPersistenceFixture {
   IEmailSettingsPersistence _persistence;
@@ -48,8 +48,7 @@ class EmailSettingsPersistenceFixture {
     expect(settings.ver_code, isNull);
 
     // Get settings by email
-    settings = await _persistence.getOneByEmail(
-        null, SETTINGS1.email);
+    settings = await _persistence.getOneByEmail(null, SETTINGS1.email);
     expect(settings, isNotNull);
     expect(SETTINGS1.id, settings.id);
     expect(SETTINGS1.email, settings.email);

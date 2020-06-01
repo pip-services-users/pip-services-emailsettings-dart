@@ -246,6 +246,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.11.4"
+  mailer:
+    dependency: transitive
+    description:
+      name: mailer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.4"
   matcher:
     dependency: transitive
     description:
@@ -365,6 +372,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  pip_clients_email:
+    dependency: "direct main"
+    description:
+      name: pip_clients_email
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  pip_clients_msgtemplates:
+    dependency: "direct main"
+    description:
+      name: pip_clients_msgtemplates
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   pip_services3_commons:
     dependency: "direct main"
     description:
@@ -421,6 +442,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  pip_services_email:
+    dependency: "direct main"
+    description:
+      name: pip_services_email
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  pip_services_msgtemplates:
+    dependency: "direct main"
+    description:
+      name: pip_services_msgtemplates
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   pool:
     dependency: transitive
     description:

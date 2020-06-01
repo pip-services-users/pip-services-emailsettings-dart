@@ -16,28 +16,32 @@ abstract class IEmailSettingsController {
   /// - [correlationId]     (optional) transaction id to trace execution through call chain.
   /// - [recipientId]                a recipient id of settings to be retrieved.
   /// Return         Future that receives email settings or error.
-  Future<EmailSettingsV1> getSettingsById(String correlationId, String recipientId);
+  Future<EmailSettingsV1> getSettingsById(
+      String correlationId, String recipientId);
 
   /// Gets an email settings by its email.
   ///
   /// - [correlationId]     (optional) transaction id to trace execution through call chain.
   /// - [email]                an email of email settings to be retrieved.
   /// Return         Future that receives email settings or error.
-  Future<EmailSettingsV1> getSettingsByEmail(String correlationId, String email);
+  Future<EmailSettingsV1> getSettingsByEmail(
+      String correlationId, String email);
 
   /// Sets an email settings.
   ///
   /// - [correlation_id]    (optional) transaction id to trace execution through call chain.
   /// - [settings]              an email settings to be set.
   /// Return         (optional) Future that receives set email settings or error.
-  Future<EmailSettingsV1> setSettings(String correlationId, EmailSettingsV1 settings);
+  Future<EmailSettingsV1> setSettings(
+      String correlationId, EmailSettingsV1 settings);
 
   /// Sets a verified email settings.
   ///
   /// - [correlation_id]    (optional) transaction id to trace execution through call chain.
   /// - [settings]              an email settings to be set.
   /// Return         (optional) Future that receives set verified email settings or error.
-  Future<EmailSettingsV1> setVerifiedSettings(String correlationId, EmailSettingsV1 settings);  
+  Future<EmailSettingsV1> setVerifiedSettings(
+      String correlationId, EmailSettingsV1 settings);
 
   /// Sets a recipient info into email settings.
   ///
@@ -48,7 +52,8 @@ abstract class IEmailSettingsController {
   /// - [language]                a recipient language of settings to be set.
   /// Return         (optional) Future that receives updated email settings
   /// Throws error.
-  Future<EmailSettingsV1> setRecipient(String correlationId, String recipientId, String name, String email, String language);
+  Future<EmailSettingsV1> setRecipient(String correlationId, String recipientId,
+      String name, String email, String language);
 
   /// Sets a subscriptions into email settings.
   ///
@@ -57,7 +62,8 @@ abstract class IEmailSettingsController {
   /// - [subscriptions]                a subscriptions to be set.
   /// Return         (optional) Future that receives updated email settings
   /// Throws error.
-  Future<EmailSettingsV1> setSubscriptions(String correlationId, String recipientId, dynamic subscriptions);
+  Future<EmailSettingsV1> setSubscriptions(
+      String correlationId, String recipientId, dynamic subscriptions);
 
   /// Deleted an email settings by recipient id.
   ///
@@ -65,7 +71,8 @@ abstract class IEmailSettingsController {
   /// - [recipientId]                a recipient id of the email settings to be deleted
   /// Return                Future that receives deleted email settings
   /// Throws error.
-  Future<EmailSettingsV1> deleteSettingsById(String correlationId, String recipientId);
+  Future<EmailSettingsV1> deleteSettingsById(
+      String correlationId, String recipientId);
 
   /// Resends verification.
   ///
