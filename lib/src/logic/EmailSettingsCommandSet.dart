@@ -28,7 +28,7 @@ class EmailSettingsCommandSet extends CommandSet {
         ObjectSchema(true).withRequiredProperty(
             'recipient_ids', ArraySchema(TypeCode.String)),
         (String correlationId, Parameters args) {
-      var recipientIds = args.get('recipient_ids');
+      var recipientIds = List<String>.from(args.get('recipient_ids'));
       return _controller.getSettingsByIds(correlationId, recipientIds);
     });
   }

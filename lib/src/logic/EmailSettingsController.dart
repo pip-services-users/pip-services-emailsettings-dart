@@ -68,7 +68,7 @@ class EmailSettingsController
     config = config.setDefaults(EmailSettingsController._defaultConfig);
     dependencyResolver.configure(config);
 
-    //_templatesResolver.configure(config);
+    _templatesResolver.configure(config);
     _logger.configure(config);
 
     _verifyOnCreate = config.getAsBooleanWithDefault(
@@ -127,7 +127,7 @@ class EmailSettingsController
   Future<List<EmailSettingsV1>> getSettingsByIds(
       String correlationId, List<String> recipientIds) async {
     var settings = await persistence.getListByIds(correlationId, recipientIds);
-    var result;
+    var result = <EmailSettingsV1>[];
     if (settings != null) {
       result = settings.map((s) => _settingsToPublic(s)).toList();
     }

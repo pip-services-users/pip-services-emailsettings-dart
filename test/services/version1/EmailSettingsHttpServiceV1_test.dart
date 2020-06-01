@@ -96,6 +96,14 @@ void main() {
       expect(settings1.id, settings.id);
       expect(settings.subscriptions['engagement'], isTrue);
 
+      // Get settings
+      resp = await rest.post(url + '/v1/email_settings/get_settings_by_ids',
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode({'recipient_ids': [settings1.id]}));
+      var list = List<EmailSettingsV1>.from(json.decode(resp.body).map((itemsJson) => EmailSettingsV1.fromJson(itemsJson)));
+      expect(list, isNotNull);
+      expect(list.length, 1);
+
       // Delete the settings
       resp = await rest.post(url + '/v1/email_settings/delete_settings_by_id',
           headers: {'Content-Type': 'application/json'},
