@@ -72,4 +72,21 @@ class EmailSettingsV1 implements IStringIdentifiable {
       'custom_dat': custom_dat
     };
   }
+
+  factory EmailSettingsV1.fromJson(Map<String, dynamic> json) {
+    var ver_expire_time_json = json['ver_expire_time'];
+    return EmailSettingsV1(
+    id: json['id'],
+    name: json['name'],
+    email: json['email'],
+    language: json['language'],
+    subscriptions: json['subscriptions'],
+    verified: json['verified'],
+    ver_code: json['ver_code'],
+    ver_expire_time: ver_expire_time_json != null
+        ? DateTime.tryParse(ver_expire_time_json)
+        : null,
+    custom_hdr: json['custom_hdr'],
+    custom_dat: json['custom_dat']);
+  }
 }
